@@ -28,7 +28,23 @@ public class Cliente {
 		private LocalDate nascimento ;
 		private boolean primeiracompra;
 		
+		public Cliente() {
+			
+		}
 		
+		
+		public Cliente(@Size(min = 11, max = 11) @Pattern(regexp = "(\\d{11})") String cpf, String nome,
+				String endereco, String telefone, String email) {
+			super();
+			
+			this.cpf = cpf;
+			this.nome = nome;
+			this.endereco = endereco;
+			this.telefone = telefone;
+			this.email = email;
+				}
+
+
 		public String getCpf() {
 			return cpf;
 		}
