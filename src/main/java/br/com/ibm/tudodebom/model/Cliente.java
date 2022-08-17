@@ -1,10 +1,14 @@
 package br.com.ibm.tudodebom.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -14,7 +18,7 @@ import javax.validation.constraints.Size;
 public class Cliente {
 	
 
-	
+
 		
 		@Id
 		@Column(unique=true)
@@ -27,6 +31,10 @@ public class Cliente {
 		private String email;
 		private LocalDate nascimento ;
 		private boolean primeiracompra;
+		
+		@OneToMany
+	    @JoinColumn(name = "cpf_cliente") // Esta coluna está na tabela "aluno".
+	    private List<Cliente> cliente;
 		
 		public Cliente() {
 			

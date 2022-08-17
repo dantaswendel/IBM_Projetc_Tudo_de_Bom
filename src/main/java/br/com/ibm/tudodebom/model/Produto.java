@@ -2,12 +2,15 @@ package br.com.ibm.tudodebom.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Entity;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity  // mostra que a classe está relacionada a uma tabela banco de dados
@@ -24,7 +27,9 @@ public class Produto {
 	private boolean remedio;
 	private boolean generico;
 	
-
+	@OneToMany
+    @JoinColumn(name = "id_produto") // Esta coluna está na tabela "aluno".
+    private List<Produto> produto;
 	
 	public LocalDate getvalidade() {
 		return validade;

@@ -15,7 +15,7 @@ import br.com.ibm.tudodebom.model.Produto;
 import br.com.ibm.tudodebom.repository.ProdutoRepository;
 
 @RestController
-@RequestMapping("/cliente")
+@RequestMapping("/produto")
 public final class ProdutoController {
 
 	@Autowired
