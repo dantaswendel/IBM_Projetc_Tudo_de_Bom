@@ -21,9 +21,7 @@ import javax.validation.constraints.Size;
 public class Cliente {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional = false)
-	private Long id;
 	@Size(min = 11, max = 11)
 	private String cpf;
 	private String nome;
@@ -34,7 +32,7 @@ public class Cliente {
 	private boolean primeiracompra;
 
 	@OneToMany
-	@JoinColumn(name = "id_cliente") // Esta coluna está na tabela "aluno".
+	@JoinColumn(name = "cpf") // Esta coluna está na tabela "aluno".
 	private List<Cliente> cliente;
 
 	public Cliente() {

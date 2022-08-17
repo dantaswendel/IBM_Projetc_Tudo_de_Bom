@@ -22,13 +22,13 @@ public class Produto {
 	private Long id;
 	private String nome;
 	private String marca;
-	private BigDecimal preco;
+	private float preco;
 	private LocalDate validade;
 	private boolean remedio;
 	private boolean generico;
 	
 	@OneToMany
-    @JoinColumn(name = "id_produto") // Esta coluna está na tabela "aluno".
+    @JoinColumn(name = "produto") // Esta coluna está na tabela "aluno".
     private List<Produto> produto;
 	
 	public LocalDate getvalidade() {
@@ -56,11 +56,22 @@ public class Produto {
 	public void setMarca(String marca) {
 		this.marca = marca;
 	}
-	public BigDecimal getPreco() {
-		return preco;
+	public float getPreco() {
+	if (generico==true) {
+		preco=(float) (preco*0.8);
+	return preco;
 	}
-	public void setPreco(BigDecimal preco) {
+	else 
+	return preco;
+	}
+	
+	public void setPreco(float preco) {
+		if (generico==true) {
+			preco=(float) (preco*0.8);
 		this.preco = preco;
+		}
+		else 
+		this.preco=preco;
 	}
 	
 	public boolean isRemedio() {

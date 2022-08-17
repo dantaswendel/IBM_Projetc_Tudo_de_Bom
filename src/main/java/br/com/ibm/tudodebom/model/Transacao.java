@@ -22,11 +22,11 @@ public class Transacao {
 	private Long id;
 	
 	  @ManyToOne
-	   @JoinColumn(name="id_produto", nullable=false)
+	   @JoinColumn(name="produto", nullable=false)
 	   private Produto produto;
 	  
 	  @ManyToOne
-	   @JoinColumn(name="id_cliente", nullable=false)
+	   @JoinColumn(name="cpf", nullable=false)
 	   private Cliente cliente;
 
 	  

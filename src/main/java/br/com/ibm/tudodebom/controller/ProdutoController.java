@@ -27,7 +27,7 @@ public List<Produto> listar(){
 }
 	@PostMapping
 	public void salvar( @RequestBody Produto produto) {
-		if(produto.getId() >0)
+		if(produto.getId()>0)
 			produtoRepository.save(produto);
 	}
 	
