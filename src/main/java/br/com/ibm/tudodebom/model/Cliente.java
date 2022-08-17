@@ -31,10 +31,6 @@ public class Cliente {
 	private LocalDate nascimento;
 	private boolean primeiracompra;
 
-	@OneToMany
-	@JoinColumn(name = "cpf") // Esta coluna está na tabela "aluno".
-	private List<Cliente> cliente;
-
 	public Cliente() {
 
 	}

@@ -24,7 +24,7 @@ public class Transacao {
 	  @ManyToOne
 	   @JoinColumn(name="produto", nullable=false)
 	   private Produto produto;
-	  
+
 	  @ManyToOne
 	   @JoinColumn(name="cpf", nullable=false)
 	   private Cliente cliente;
@@ -57,9 +57,5 @@ public class Transacao {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	  
-
-	
-
 	
 }

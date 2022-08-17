@@ -27,6 +27,9 @@ public class Produto {
 	private boolean remedio;
 	private boolean generico;
 	
+	
+
+	
 	@OneToMany
     @JoinColumn(name = "produto") // Esta coluna está na tabela "aluno".
     private List<Produto> produto;
