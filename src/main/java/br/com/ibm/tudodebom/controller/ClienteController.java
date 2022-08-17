@@ -44,7 +44,7 @@ public List<Cliente> listar(){
 	 
 	@DeleteMapping
 	public void excluir( Cliente cliente) {
-		clienteRepository.delete(cliente);
+		clienteRepository.deleteAll();
 	}
 }
 

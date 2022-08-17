@@ -3,8 +3,11 @@ package br.com.ibm.tudodebom.model;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -13,117 +16,96 @@ import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-@Entity  // mostra que a classe está relacionada a uma tabela banco de dados
-@Table (name = "clientes")
+@Entity // mostra que a classe está relacionada a uma tabela banco de dados
+@Table(name = "clientes")
 public class Cliente {
-	
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Basic(optional = false)
+	private Long id;
+	@Size(min = 11, max = 11)
+	private String cpf;
+	private String nome;
+	private String endereco;
+	private String telefone;
+	private String email;
+	private LocalDate nascimento;
+	private boolean primeiracompra;
 
-		
-		@Id
-		@Column(unique=true)
-		@Size(min=11, max=11)
-		@Pattern(regexp = "(\\d{11})")
-		private String cpf;
-		private String nome;
-		private String endereco;
-		private String telefone;
-		private String email;
-		private LocalDate nascimento ;
-		private boolean primeiracompra;
-		
-		@OneToMany
-	    @JoinColumn(name = "cpf_cliente") // Esta coluna está na tabela "aluno".
-	    private List<Cliente> cliente;
-		
-		public Cliente() {
-			
-		}
-		
-		
-		public Cliente(@Size(min = 11, max = 11) @Pattern(regexp = "(\\d{11})") String cpf, String nome,
-				String endereco, String telefone, String email) {
-			super();
-			
-			this.cpf = cpf;
-			this.nome = nome;
-			this.endereco = endereco;
-			this.telefone = telefone;
-			this.email = email;
-				}
+	@OneToMany
+	@JoinColumn(name = "id_cliente") // Esta coluna está na tabela "aluno".
+	private List<Cliente> cliente;
 
+	public Cliente() {
 
-		public String getCpf() {
-			return cpf;
-		}
+	}
 
+	public Cliente(@Size(min = 11, max = 11) @Pattern(regexp = "(\\d{11})") String cpf, String nome, String endereco,
+			String telefone, String email) {
+		super();
 
-		public void setCpf(String cpf) {
-			this.cpf = cpf;
-		}
+		this.cpf = cpf;
+		this.nome = nome;
+		this.endereco = endereco;
+		this.telefone = telefone;
+		this.email = email;
+	}
 
+	public String getCpf() {
+		return cpf;
+	}
 
-		public String getNome() {
-			return nome;
-		}
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 
+	public String getNome() {
+		return nome;
+	}
 
-		public void setNome(String nome) {
-			this.nome = nome;
-		}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
+	public String getEndereco() {
+		return endereco;
+	}
 
-		public String getEndereco() {
-			return endereco;
-		}
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
 
+	public String getTelefone() {
+		return telefone;
+	}
 
-		public void setEndereco(String endereco) {
-			this.endereco = endereco;
-		}
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
 
+	public String getEmail() {
+		return email;
+	}
 
-		public String getTelefone() {
-			return telefone;
-		}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
+	public LocalDate getNascimento() {
+		return nascimento;
+	}
 
-		public void setTelefone(String telefone) {
-			this.telefone = telefone;
-		}
+	public void setNascimento(LocalDate date) {
+		this.nascimento = date;
+	}
 
+	public boolean isPrimeiracompra() {
+		return primeiracompra;
+	}
 
-		public String getEmail() {
-			return email;
-		}
+	public void setPrimeiracompra(boolean primeiracompra) {
+		this.primeiracompra = primeiracompra;
+	}
 
-
-		public void setEmail(String email) {
-			this.email = email;
-		}
-
-
-		public LocalDate getNascimento() {
-			return nascimento;
-		}
-
-
-		public void setNascimento(LocalDate date) {
-			this.nascimento = date;
-		}
-
-
-		public boolean isPrimeiracompra() {
-			return primeiracompra;
-		}
-
-
-		public void setPrimeiracompra(boolean primeiracompra) {
-			this.primeiracompra = primeiracompra;
-		}
-				
-		}
-
-
-		
-
+}
