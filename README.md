@@ -21,4 +21,7 @@ PRODUTO
 
 [GET]  " /transacoes" -> Listar todas as transações
 [POST]   " /transacoes" -> Cadastrar uma nova transação
-![blobhttpsweb whatsapp com271590f6-27d1-469c-b8ef-d1ed8a4f8454 (23)](https://user-images.githubusercontent.com/93411167/185109780-b2fd5bc2-ec34-4c3c-831b-1e7cf3f33ee8.png)
+
+
+BANCO DE DADOS
+![blobhttpsweb whatsapp com271590f6-27d1-469c-b8ef-d1ed8a4f8454 (23)](https://user-images.githubusercontent.com/93411167/185110063-f15df4f5-a519-4b86-983f-1a57071ff9f3.png)
