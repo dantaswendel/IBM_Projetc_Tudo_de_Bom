@@ -28,7 +28,6 @@ public class Cliente {
 	private String endereco;
 	private String telefone;
 	private String email;
-	private LocalDate nascimento;
 	private boolean primeiracompra;
 
 	public Cliente() {
@@ -86,13 +85,7 @@ public class Cliente {
 		this.email = email;
 	}
 
-	public LocalDate getNascimento() {
-		return nascimento;
-	}
 
-	public void setNascimento(LocalDate date) {
-		this.nascimento = date;
-	}
 
 	public boolean isPrimeiracompra() {
 		return primeiracompra;
